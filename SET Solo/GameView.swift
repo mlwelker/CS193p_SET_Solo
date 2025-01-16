@@ -1,13 +1,8 @@
-//
-//  ContentView.swift
-//  SET Solo
-//
-//  Created by Michael Welker on 1/15/25.
-//
+// VIEW
 
 import SwiftUI
 
-struct ContentView: View {
+struct GameView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +15,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    GameView()
 }
