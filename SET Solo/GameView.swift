@@ -18,6 +18,10 @@ struct GameView: View {
         }
         .background(backgroundColor)
     }
+    
+//    private var cards: some View {
+//        AspectVGrid(<#T##items: [Identifiable]##[Identifiable]#>, aspectRatio: <#T##CGFloat#>, content: <#T##(Identifiable) -> View#>)
+//    }
 }
 
 let textColor = Color(red: 120/255, green: 80/255, blue: 80/255)

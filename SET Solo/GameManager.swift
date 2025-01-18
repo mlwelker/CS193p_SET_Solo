@@ -7,7 +7,7 @@ import Foundation
     
     private var game = createGame()
     
-    private static func createGame() -> Game {
+    private static func createGame() -> Game<String> {
         return Game()
     }
 }
