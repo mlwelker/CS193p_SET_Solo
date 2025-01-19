@@ -6,46 +6,35 @@ let backgroundColor = Color(red: 60/255, green: 60/255, blue: 60/255)
 
 struct GameView: View {
     let gameManager: GameManager
+    let aspectRatio: CGFloat = 2/3
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                ForEach(GameManager.messages, id: \.self) { message in
-                    CardView(content: message)
-                        .padding()
-                }
-            }
+        AspectVGrid(gameManager.cards, aspectRatio: aspectRatio) { card in
+            CardView(card: card)
         }
-        .background(backgroundColor)
+        .padding()
     }
-    
-//    private var cards: some View {
-//        AspectVGrid(<#T##items: [Identifiable]##[Identifiable]#>, aspectRatio: <#T##CGFloat#>, content: <#T##(Identifiable) -> View#>)
-//    }
 }
 
 let textColor = Color(red: 120/255, green: 80/255, blue: 80/255)
 
 struct CardView: View {
     let borderColor = Color(red: 25/255, green: 25/255, blue: 25/255)
-    let content: String
-    let aspectRatio: CGFloat = 2/3
+    let card: Card
+//    let aspectRatio: CGFloat = 2/3
     
     var body: some View {
-        let cardBase = RoundedRectangle(cornerRadius: 14)
+        let cardBase = RoundedRectangle(cornerRadius: 4)
         
         ZStack {
             cardBase.fill(.white)
-            cardBase.strokeBorder(lineWidth: 3).foregroundStyle(borderColor)
+            cardBase.strokeBorder(lineWidth: 1).foregroundStyle(borderColor)
             VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text(content)
+                Text("\(card.id)")
                     .foregroundStyle(textColor)
             }
         }
-        .aspectRatio(aspectRatio, contentMode: .fit)
+//        .aspectRatio(aspectRatio, contentMode: .fit)
     }
     
 }
